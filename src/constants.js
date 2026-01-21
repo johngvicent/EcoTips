@@ -36,6 +36,15 @@ export const WASTE_DATA = [
     examples: "Sobres de correo, carpetas de cartón",
     avoid: "Sobres acolchados con plástico de burbujas (van al amarillo)"
   },
+  {
+    name: "Bolsas de papel para palomitas",
+    container: "Azul",
+    color: "bg-blue-500",
+    category: "Papel y cartón",
+    tip: "Las bolsas de papel para palomitas de maíz se reciclan en el contenedor azul, contribuyendo a la reducción del desperdicio de papel.",
+    examples: "Bolsas de palomitas de maíz, bolsas de papel para snacks",
+    avoid: "Bolsas sucias con grasa o restos de comida"
+  },
 
   // CONTENEDOR AMARILLO - Envases de plástico, latas y briks
   {
@@ -138,6 +147,15 @@ export const WASTE_DATA = [
     tip: "Los frascos de perfume de vidrio son reciclables. Retira el tapón antes de depositarlo.",
     examples: "Frascos de perfume, colonias",
     avoid: "Frascos con restos de producto peligroso (punto limpio)"
+  },
+  {
+    name: "Vajilla Duralex",
+    container: "Verde",
+    color: "bg-green-500",
+    category: "Vidrio",
+    tip: "La vajilla Duralex (vidrio templado) es 100% reciclable. Se funde para crear nuevos productos de vidrio.",
+    examples: "Platos Duralex, vasos Duralex, tazas de vidrio templado",
+    avoid: "Vajilla rota en pedazos muy pequeños o mezclada con cerámica"
   },
 
   // CONTENEDOR MARRÓN - Orgánico

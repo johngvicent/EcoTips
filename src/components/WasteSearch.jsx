@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react';
 import { WASTE_DATA } from '../constants';
 import { motion } from 'framer-motion';
-import { FaSearch, FaRecycle } from 'react-icons/fa';
+import { FaSearch, FaRecycle, FaInfoCircle, FaExclamationTriangle } from 'react-icons/fa';
 
 const WasteSearch = () => {
   const [query, setQuery] = useState('');
   const [results, setResults] = useState([]);
   const [bgColor, setBgColor] = useState('bg-white dark:bg-gray-900');
+  const [activeTab, setActiveTab] = useState('tip');
 
   useEffect(() => {
     if (query.trim() === '') {
@@ -16,7 +17,8 @@ const WasteSearch = () => {
     }
 
     const filtered = WASTE_DATA.filter(item =>
-      item.name.toLowerCase().includes(query.toLowerCase())
+      item.name.toLowerCase().includes(query.toLowerCase()) ||
+      item.examples.toLowerCase().includes(query.toLowerCase())
     );
     setResults(filtered);
 
@@ -54,6 +56,31 @@ const WasteSearch = () => {
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.3 }}
           >
+            {/* Tab buttons */}
+            <div className="flex justify-center mb-4">
+              <button
+                onClick={() => setActiveTab('tip')}
+                className={`px-4 py-2 rounded-l-lg flex items-center ${
+                  activeTab === 'tip'
+                    ? 'bg-blue-500 text-white'
+                    : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300'
+                }`}
+              >
+                <FaInfoCircle className="mr-2" />
+                Consejo
+              </button>
+              <button
+                onClick={() => setActiveTab('avoid')}
+                className={`px-4 py-2 rounded-r-lg flex items-center ${
+                  activeTab === 'avoid'
+                    ? 'bg-red-500 text-white'
+                    : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300'
+                }`}
+              >
+                <FaExclamationTriangle className="mr-2" />
+                Evitar
+              </button>
+            </div>
             {results.map((item, index) => (
               <div key={index} className="text-center">
                 <div className={`inline-block w-16 h-16 rounded-full ${item.color} mb-4 flex items-center justify-center`}>
@@ -62,7 +89,9 @@ const WasteSearch = () => {
                 <h3 className="text-xl font-semibold mb-2 text-gray-800 dark:text-white">
                   Contenedor: {item.container}
                 </h3>
-                <p className="text-gray-600 dark:text-gray-300">{item.tip}</p>
+                <p className="text-gray-600 dark:text-gray-300">
+                  {activeTab === 'tip' ? item.tip : item.avoid}
+                </p>
               </div>
             ))}
           </motion.div>
