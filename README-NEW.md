@@ -2,6 +2,8 @@
 
 Una aplicación web moderna y educativa que ayuda a los usuarios a aprender sobre reciclaje y calcular su impacto ambiental de manera interactiva.
 
+Proyecto prototipado en Vercel bajo el link: https://eco-tips-ochre.vercel.app/
+
 ## ✨ Características Principales
 
 ### 🔍 Buscador de Residuos
