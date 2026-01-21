@@ -3,6 +3,17 @@ import { WASTE_DATA } from '../constants';
 import { motion } from 'framer-motion';
 import { FaSearch, FaRecycle, FaInfoCircle, FaExclamationTriangle } from 'react-icons/fa';
 
+const LIGHT_BG_BY_COLOR = {
+  'bg-blue-500': 'bg-blue-100',
+  'bg-yellow-500': 'bg-yellow-100',
+  'bg-green-500': 'bg-green-100',
+  'bg-amber-600': 'bg-amber-100',
+  'bg-gray-500': 'bg-gray-100',
+  'bg-purple-500': 'bg-purple-100',
+  'bg-pink-500': 'bg-pink-100',
+  'bg-red-500': 'bg-red-100'
+};
+
 const WasteSearch = () => {
   const [query, setQuery] = useState('');
   const [results, setResults] = useState([]);
@@ -23,7 +34,9 @@ const WasteSearch = () => {
     setResults(filtered);
 
     if (filtered.length > 0) {
-      setBgColor(filtered[0].color.replace('bg-', 'bg-').replace('-500', '-100') + ' dark:bg-gray-900');
+      const first = filtered[0];
+      const lightBg = LIGHT_BG_BY_COLOR[first.color] ?? 'bg-white';
+      setBgColor(`${lightBg} dark:bg-gray-900`);
     } else {
       setBgColor('bg-white dark:bg-gray-900');
     }
