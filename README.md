@@ -8,6 +8,7 @@ Una aplicación web moderna y educativa que ayuda a los usuarios a aprender sobr
 - Búsqueda en tiempo real de objetos
 - Indicación visual del contenedor correcto (Azul, Verde, Amarillo, Gris, Marrón)
 - Consejos personalizados para cada tipo de residuo
+- Advertencia sobre las prácticas incorrectas al reciclar.
 
 ### 📊 Calculadora de Impacto Ambiental
 - Selección interactiva de materiales reciclados
