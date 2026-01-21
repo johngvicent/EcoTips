@@ -101,6 +101,19 @@ Los cálculos ambientales están basados en:
 - Estudios de la UE sobre reciclaje
 - Investigaciones científicas sobre huella de carbono
 
+### Fuentes de Información de Reciclaje
+Los criterios de clasificación de residuos y las recomendaciones de reciclaje provienen de:
+- **datos.gob.es** - Portal de Datos Abiertos del Gobierno de España
+- **Ecoembes** - Sistema Colectivo de Responsabilidad Ampliada del Productor
+- Normativa española sobre gestión de residuos domésticos
+
+La base de datos incluye más de 40 tipos de residuos con información detallada sobre:
+- Contenedor correcto (Azul, Amarillo, Verde, Marrón, Gris, Punto Limpio)
+- Categorías específicas de cada residuo
+- Ejemplos prácticos de productos
+- Consejos sobre qué evitar al reciclar
+- Tips ambientales basados en fuentes oficiales
+
 ## 🌍 Impacto Educativo
 
 Esta aplicación busca:

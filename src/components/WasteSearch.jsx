@@ -1,12 +1,24 @@
 import { useState, useEffect } from 'react';
 import { WASTE_DATA } from '../constants';
 import { motion } from 'framer-motion';
-import { FaSearch, FaRecycle } from 'react-icons/fa';
+import { FaSearch, FaRecycle, FaInfoCircle, FaExclamationTriangle } from 'react-icons/fa';
+
+const LIGHT_BG_BY_COLOR = {
+  'bg-blue-500': 'bg-blue-100',
+  'bg-yellow-500': 'bg-yellow-100',
+  'bg-green-500': 'bg-green-100',
+  'bg-amber-600': 'bg-amber-100',
+  'bg-gray-500': 'bg-gray-100',
+  'bg-purple-500': 'bg-purple-100',
+  'bg-pink-500': 'bg-pink-100',
+  'bg-red-500': 'bg-red-100'
+};
 
 const WasteSearch = () => {
   const [query, setQuery] = useState('');
   const [results, setResults] = useState([]);
   const [bgColor, setBgColor] = useState('bg-white dark:bg-gray-900');
+  const [activeTab, setActiveTab] = useState('tip');
 
   useEffect(() => {
     if (query.trim() === '') {
@@ -16,12 +28,15 @@ const WasteSearch = () => {
     }
 
     const filtered = WASTE_DATA.filter(item =>
-      item.name.toLowerCase().includes(query.toLowerCase())
+      item.name.toLowerCase().includes(query.toLowerCase()) ||
+      item.examples.toLowerCase().includes(query.toLowerCase())
     );
     setResults(filtered);
 
     if (filtered.length > 0) {
-      setBgColor(filtered[0].color.replace('bg-', 'bg-').replace('-500', '-100') + ' dark:bg-gray-900');
+      const first = filtered[0];
+      const lightBg = LIGHT_BG_BY_COLOR[first.color] ?? 'bg-white';
+      setBgColor(`${lightBg} dark:bg-gray-900`);
     } else {
       setBgColor('bg-white dark:bg-gray-900');
     }
@@ -54,6 +69,31 @@ const WasteSearch = () => {
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.3 }}
           >
+            {/* Tab buttons */}
+            <div className="flex justify-center mb-4">
+              <button
+                onClick={() => setActiveTab('tip')}
+                className={`px-4 py-2 rounded-l-lg flex items-center ${
+                  activeTab === 'tip'
+                    ? 'bg-blue-500 text-white'
+                    : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300'
+                }`}
+              >
+                <FaInfoCircle className="mr-2" />
+                Consejo
+              </button>
+              <button
+                onClick={() => setActiveTab('avoid')}
+                className={`px-4 py-2 rounded-r-lg flex items-center ${
+                  activeTab === 'avoid'
+                    ? 'bg-red-500 text-white'
+                    : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300'
+                }`}
+              >
+                <FaExclamationTriangle className="mr-2" />
+                Evitar
+              </button>
+            </div>
             {results.map((item, index) => (
               <div key={index} className="text-center">
                 <div className={`inline-block w-16 h-16 rounded-full ${item.color} mb-4 flex items-center justify-center`}>
@@ -62,7 +102,9 @@ const WasteSearch = () => {
                 <h3 className="text-xl font-semibold mb-2 text-gray-800 dark:text-white">
                   Contenedor: {item.container}
                 </h3>
-                <p className="text-gray-600 dark:text-gray-300">{item.tip}</p>
+                <p className="text-gray-600 dark:text-gray-300">
+                  {activeTab === 'tip' ? item.tip : item.avoid}
+                </p>
               </div>
             ))}
           </motion.div>
