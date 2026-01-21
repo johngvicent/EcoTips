@@ -22,11 +22,14 @@ function App() {
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors">
-      <header className="bg-white dark:bg-gray-800 shadow-sm">
+      <header 
+        className="bg-white shadow-sm transition-colors"
+        style={darkMode ? { backgroundColor: '#35524a' } : {}}
+      >
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-center">
             <img 
-              src="/ecologo.png" 
+              src={darkMode ? "/ecologo-white.svg" : "/ecologo.png"}
               alt="EcoTips Logo" 
               className="w-62.5 h-auto pb-10"
             />
@@ -44,9 +47,10 @@ function App() {
                   onClick={() => setCurrentView(key)}
                   className={`flex items-center px-4 py-2 rounded-lg font-medium transition-colors ${
                     currentView === key
-                      ? 'bg-green-500 text-white'
+                      ? 'text-white'
                       : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600'
                   }`}
+                  style={currentView === key ? { backgroundColor: '#006837' } : {}}
                 >
                   <Icon className="mr-2" />
                   {label}
