@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EcoTips Dashboard - Elegancia Sostenible</title>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style type="text/tailwindcss">
+        :root {
+            --primary: #006837;
+            --text-main: #35524a;
+            --bg-off-white: #fafaf9;
+            --border-subtle: #e5e7eb;
+        }
+        body {
+            font-family: 'Atkinson Hyperlegible', sans-serif;
+            color: var(--text-main);
+            background-color: var(--bg-off-white);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .card-minimal {
+            background: white;
+            border: 1px solid rgba(0, 0, 0, 0.03);
+            box-shadow: 0 4px 20px -10px rgba(0, 0, 0, 0.08);
+            border-radius: 12px;
+        }
+        .nav-link {
+            position: relative;
+            transition: color 0.2s ease;
+        }
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            width: 0;
+            height: 1.5px;
+            background: var(--primary);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        .nav-link:hover:after {
+            width: 80%;
+        }
+        input::placeholder {
+            color: #9ca3af;
+            font-weight: 300;
+        }
+    </style>
+<script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            green: '#006837',
+                            slate: '#35524a',
+                            neutral: '#fafaf9'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="antialiased text-brand-slate bg-brand-neutral">
+<header class="bg-white border-b border-gray-100 py-5 sticky top-0 z-50">
+<div class="max-w-7xl mx-auto px-8 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="text-brand-green">
+<span class="material-symbols-outlined text-3xl">nest_eco_leaf</span>
+</div>
+<h1 class="text-xl font-bold tracking-tight text-brand-green">ECO<span class="font-normal opacity-80">TIPS</span></h1>
+</div>
+<nav class="hidden md:flex items-center gap-10">
+<a class="nav-link text-sm font-bold uppercase tracking-widest text-brand-green" href="#">Buscador</a>
+<a class="nav-link text-sm font-bold uppercase tracking-widest opacity-60 hover:opacity-100" href="#">Calculadora</a>
+<a class="nav-link text-sm font-bold uppercase tracking-widest opacity-60 hover:opacity-100" href="#">Guía Visual</a>
+<a class="nav-link text-sm font-bold uppercase tracking-widest opacity-60 hover:opacity-100" href="#">Eco-Tips</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="bg-brand-green text-white px-6 py-2.5 rounded-full text-sm font-bold tracking-wide hover:shadow-lg hover:shadow-green-900/10 transition-all">
+                ACCESO
+            </button>
+</div>
+</div>
+</header>
+<main class="max-w-7xl mx-auto px-8 py-16 space-y-24">
+<section class="text-center max-w-3xl mx-auto space-y-10">
+<div class="space-y-4">
+<span class="text-xs font-bold tracking-[0.3em] uppercase text-brand-green opacity-70">Guía de Sostenibilidad</span>
+<h2 class="text-5xl font-bold leading-tight text-brand-green">¿Cómo reciclamos hoy?</h2>
+<p class="text-lg opacity-70 font-light">Escribe el nombre del residuo para obtener instrucciones precisas de reciclaje.</p>
+</div>
+<div class="relative max-w-2xl mx-auto">
+<input class="w-full bg-transparent border-t-0 border-x-0 border-b border-gray-300 focus:ring-0 focus:border-brand-green py-5 px-4 text-2xl text-brand-green placeholder:text-gray-300 transition-all font-light" placeholder="Ej: Tetra brik, envase de yogurt..." type="text"/>
+<button class="absolute right-2 top-1/2 -translate-y-1/2 text-brand-green">
+<span class="material-symbols-outlined text-3xl">arrow_forward</span>
+</button>
+</div>
+</section>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+<div class="lg:col-span-8 space-y-10">
+<div class="card-minimal p-10 bg-white">
+<div class="flex items-center justify-between mb-12">
+<h3 class="text-2xl font-bold text-brand-green">Calculadora de Impacto</h3>
+<span class="text-[10px] font-bold tracking-widest uppercase py-1.5 px-3 bg-brand-neutral border border-gray-100 rounded-full">Registro Diario</span>
+</div>
+<div class="grid md:grid-cols-2 gap-16">
+<div class="space-y-6">
+<p class="text-xs font-bold uppercase tracking-widest opacity-40">Residuos procesados</p>
+<div class="space-y-3">
+<button class="w-full flex items-center justify-between p-4 rounded-lg border border-gray-50 hover:border-brand-green hover:bg-brand-neutral transition-all group">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-blue-400">description</span>
+<span class="text-sm font-bold opacity-80">Papel y Cartón</span>
+</div>
+<span class="material-symbols-outlined text-sm opacity-0 group-hover:opacity-100">add</span>
+</button>
+<button class="w-full flex items-center justify-between p-4 rounded-lg border border-gray-50 hover:border-brand-green hover:bg-brand-neutral transition-all group">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-yellow-500">shopping_bag</span>
+<span class="text-sm font-bold opacity-80">Plásticos y Envases</span>
+</div>
+<span class="material-symbols-outlined text-sm opacity-0 group-hover:opacity-100">add</span>
+</button>
+<button class="w-full flex items-center justify-between p-4 rounded-lg border border-gray-50 hover:border-brand-green hover:bg-brand-neutral transition-all group">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-green-600">wine_bar</span>
+<span class="text-sm font-bold opacity-80">Vidrio</span>
+</div>
+<span class="material-symbols-outlined text-sm opacity-0 group-hover:opacity-100">add</span>
+</button>
+<button class="w-full flex items-center justify-between p-4 rounded-lg border border-gray-50 hover:border-brand-green hover:bg-brand-neutral transition-all group">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-orange-700">restaurant</span>
+<span class="text-sm font-bold opacity-80">Orgánico</span>
+</div>
+<span class="material-symbols-outlined text-sm opacity-0 group-hover:opacity-100">add</span>
+</button>
+</div>
+</div>
+<div class="space-y-8">
+<p class="text-xs font-bold uppercase tracking-widest opacity-40">Ahorro Estimado</p>
+<div class="space-y-8">
+<div class="flex items-start gap-6">
+<div class="mt-1 text-brand-green opacity-40">
+<span class="material-symbols-outlined text-3xl">bolt</span>
+</div>
+<div>
+<p class="text-3xl font-bold text-brand-green">12.4 <span class="text-sm font-normal opacity-50">kWh</span></p>
+<p class="text-xs font-bold uppercase tracking-tighter opacity-60">Energía preservada</p>
+</div>
+</div>
+<div class="flex items-start gap-6">
+<div class="mt-1 text-brand-green opacity-40">
+<span class="material-symbols-outlined text-3xl">water_drop</span>
+</div>
+<div>
+<p class="text-3xl font-bold text-brand-green">145 <span class="text-sm font-normal opacity-50">L</span></p>
+<p class="text-xs font-bold uppercase tracking-tighter opacity-60">Agua ahorrada</p>
+</div>
+</div>
+</div>
+<div class="pt-8 border-t border-gray-100">
+<div class="h-32 flex items-end gap-3 mt-4">
+<div class="flex-1 bg-gray-100 rounded-sm h-[40%]"></div>
+<div class="flex-1 bg-gray-100 rounded-sm h-[80%]"></div>
+<div class="flex-1 bg-brand-green rounded-sm h-[30%]"></div>
+<div class="flex-1 bg-gray-100 rounded-sm h-[60%]"></div>
+<div class="flex-1 bg-gray-100 rounded-sm h-[20%]"></div>
+</div>
+<p class="text-[10px] text-center mt-3 font-bold uppercase tracking-widest opacity-30">Consumo semanal vs Ahorro</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="lg:col-span-4 space-y-12">
+<div class="card-minimal p-8 flex flex-col items-start text-left bg-white">
+<div class="text-brand-green mb-6">
+<span class="material-symbols-outlined text-4xl">lightbulb</span>
+</div>
+<h3 class="text-lg font-bold text-brand-green mb-3">Eco-Tip del Día</h3>
+<p class="text-sm leading-relaxed opacity-70 italic mb-8">
+                    "Las cajas de cartón con restos de grasa no pueden reciclarse como papel. El aceite contamina las fibras vírgenes durante el proceso de triturado."
+                </p>
+<button class="text-xs font-bold uppercase tracking-widest text-brand-green border-b border-brand-green pb-1 hover:opacity-70 transition-opacity">
+                    Leer más consejos
+                </button>
+</div>
+<div class="card-minimal p-8 bg-white">
+<h3 class="text-xs font-bold uppercase tracking-widest text-brand-green mb-8">Impacto Comunitario</h3>
+<div class="space-y-6">
+<div class="space-y-2">
+<div class="flex justify-between text-xs font-bold">
+<span>Meta de Barrio</span>
+<span class="text-brand-green">85%</span>
+</div>
+<div class="w-full bg-brand-neutral h-1.5 rounded-full overflow-hidden">
+<div class="bg-brand-green h-full w-[85%] rounded-full"></div>
+</div>
+</div>
+<p class="text-[11px] opacity-50 leading-snug">Has contribuido con un 2.4% al total del ahorro colectivo este mes.</p>
+</div>
+</div>
+</div>
+</div>
+<section class="space-y-12">
+<div class="flex items-center justify-between border-b border-gray-100 pb-6">
+<h3 class="text-xl font-bold text-brand-green flex items-center gap-3">
+<span class="material-symbols-outlined">grid_view</span>
+                Guía de Contenedores
+            </h3>
+<a class="text-xs font-bold uppercase tracking-widest opacity-60 hover:opacity-100 flex items-center gap-2" href="#">
+                Ver manual completo
+                <span class="material-symbols-outlined text-sm">open_in_new</span>
+</a>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-5 gap-8">
+<div class="flex flex-col items-center gap-4 text-center group cursor-default">
+<div class="w-14 h-14 rounded-full border border-gray-200 flex items-center justify-center text-blue-500 group-hover:border-blue-500 transition-colors">
+<span class="material-symbols-outlined text-xl">description</span>
+</div>
+<div>
+<p class="text-sm font-bold text-brand-green">AZUL</p>
+<p class="text-[10px] uppercase tracking-widest opacity-40">Papel / Cartón</p>
+</div>
+</div>
+<div class="flex flex-col items-center gap-4 text-center group cursor-default">
+<div class="w-14 h-14 rounded-full border border-gray-200 flex items-center justify-center text-yellow-500 group-hover:border-yellow-500 transition-colors">
+<span class="material-symbols-outlined text-xl">shopping_bag</span>
+</div>
+<div>
+<p class="text-sm font-bold text-brand-green">AMARILLO</p>
+<p class="text-[10px] uppercase tracking-widest opacity-40">Envases / Latas</p>
+</div>
+</div>
+<div class="flex flex-col items-center gap-4 text-center group cursor-default">
+<div class="w-14 h-14 rounded-full border border-gray-200 flex items-center justify-center text-green-600 group-hover:border-green-600 transition-colors">
+<span class="material-symbols-outlined text-xl">wine_bar</span>
+</div>
+<div>
+<p class="text-sm font-bold text-brand-green">VERDE</p>
+<p class="text-[10px] uppercase tracking-widest opacity-40">Vidrio</p>
+</div>
+</div>
+<div class="flex flex-col items-center gap-4 text-center group cursor-default">
+<div class="w-14 h-14 rounded-full border border-gray-200 flex items-center justify-center text-orange-700 group-hover:border-orange-700 transition-colors">
+<span class="material-symbols-outlined text-xl">restaurant</span>
+</div>
+<div>
+<p class="text-sm font-bold text-brand-green">MARRÓN</p>
+<p class="text-[10px] uppercase tracking-widest opacity-40">Orgánico</p>
+</div>
+</div>
+<div class="flex flex-col items-center gap-4 text-center group cursor-default">
+<div class="w-14 h-14 rounded-full border border-gray-200 flex items-center justify-center text-gray-400 group-hover:border-gray-400 transition-colors">
+<span class="material-symbols-outlined text-xl">delete</span>
+</div>
+<div>
+<p class="text-sm font-bold text-brand-green">GRIS</p>
+<p class="text-[10px] uppercase tracking-widest opacity-40">Restos</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer class="bg-white border-t border-gray-100 pt-20 pb-10 mt-20">
+<div class="max-w-7xl mx-auto px-8 grid grid-cols-1 md:grid-cols-4 gap-12">
+<div class="col-span-1 md:col-span-1 space-y-6">
+<div class="flex items-center gap-2 text-brand-green">
+<span class="material-symbols-outlined text-2xl">nest_eco_leaf</span>
+<span class="font-bold tracking-tight">ECO<span class="font-normal opacity-80">TIPS</span></span>
+</div>
+<p class="text-xs leading-loose opacity-60 max-w-xs">
+                Iniciativa dedicada a facilitar la transición hacia un estilo de vida residuo cero mediante el uso de datos y tecnología.
+            </p>
+</div>
+<div>
+<h4 class="text-xs font-bold uppercase tracking-widest mb-6">Plataforma</h4>
+<ul class="text-xs space-y-4 opacity-60">
+<li><a class="hover:text-brand-green transition-colors" href="#">Cómo funciona</a></li>
+<li><a class="hover:text-brand-green transition-colors" href="#">Calculadora CO2</a></li>
+<li><a class="hover:text-brand-green transition-colors" href="#">API para empresas</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-xs font-bold uppercase tracking-widest mb-6">Recursos</h4>
+<ul class="text-xs space-y-4 opacity-60">
+<li><a class="hover:text-brand-green transition-colors" href="#">Guía de materiales</a></li>
+<li><a class="hover:text-brand-green transition-colors" href="#">Puntos limpios</a></li>
+<li><a class="hover:text-brand-green transition-colors" href="#">Blog</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-xs font-bold uppercase tracking-widest mb-6">Síguenos</h4>
+<div class="flex gap-4">
+<a class="w-8 h-8 rounded-full border border-gray-100 flex items-center justify-center hover:border-brand-green hover:text-brand-green transition-all" href="#">
+<span class="material-symbols-outlined text-sm">public</span>
+</a>
+<a class="w-8 h-8 rounded-full border border-gray-100 flex items-center justify-center hover:border-brand-green hover:text-brand-green transition-all" href="#">
+<span class="material-symbols-outlined text-sm">mail</span>
+</a>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto px-8 mt-20 pt-8 border-t border-gray-50 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] font-bold uppercase tracking-[0.2em] opacity-30">
+<p>© 2024 EcoTips Dashboard</p>
+<p>Hacia un futuro sin residuos</p>
+</div>
+</footer>
+
+</body></html>

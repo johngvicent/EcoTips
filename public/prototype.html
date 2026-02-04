@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EcoTips Dashboard - Tu Guía de Reciclaje</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#059669",
+                        "background-light": "#f0fdf4",
+                        "background-dark": "#064e3b",
+                    },
+                    fontFamily: {
+                        display: ["Outfit", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "1rem",
+                    },
+                },
+            },
+        };
+        function toggleDarkMode() {
+            document.documentElement.classList.toggle('dark');
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Outfit', sans-serif;
+            transition: background-color 0.3s ease;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .dark .glass-card {
+            background: rgba(6, 78, 59, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .custom-shadow {
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-[#022c22] text-slate-800 dark:text-emerald-50 min-h-screen transition-colors duration-300">
+<header class="sticky top-0 z-50 w-full glass-card border-b border-emerald-100 dark:border-emerald-800 px-6 py-4">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+<div class="flex items-center gap-2">
+<div class="bg-primary p-2 rounded-xl text-white">
+<span class="material-icons-round text-2xl">eco</span>
+</div>
+<h1 class="text-2xl font-bold tracking-tight text-emerald-900 dark:text-emerald-400">ECO<span class="text-primary">TIPS</span></h1>
+</div>
+<nav class="flex items-center gap-2 overflow-x-auto pb-2 md:pb-0 w-full md:w-auto">
+<button class="flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-full font-medium shadow-md shadow-emerald-200 dark:shadow-none transition-all hover:scale-105 active:scale-95 whitespace-nowrap">
+<span class="material-icons-round text-lg">search</span>
+                    Buscador
+                </button>
+<button class="flex items-center gap-2 px-4 py-2 text-emerald-800 dark:text-emerald-200 hover:bg-emerald-100 dark:hover:bg-emerald-900/50 rounded-full font-medium transition-all whitespace-nowrap">
+<span class="material-icons-round text-lg">calculate</span>
+                    Calculadora
+                </button>
+<button class="flex items-center gap-2 px-4 py-2 text-emerald-800 dark:text-emerald-200 hover:bg-emerald-100 dark:hover:bg-emerald-900/50 rounded-full font-medium transition-all whitespace-nowrap">
+<span class="material-icons-round text-lg">visibility</span>
+                    Guía Visual
+                </button>
+<button class="flex items-center gap-2 px-4 py-2 text-emerald-800 dark:text-emerald-200 hover:bg-emerald-100 dark:hover:bg-emerald-900/50 rounded-full font-medium transition-all whitespace-nowrap">
+<span class="material-icons-round text-lg">lightbulb</span>
+                    Eco-Tips
+                </button>
+<div class="h-8 w-px bg-emerald-200 dark:bg-emerald-800 mx-2"></div>
+<button class="p-2 text-emerald-800 dark:text-emerald-200 hover:bg-emerald-100 dark:hover:bg-emerald-900/50 rounded-full transition-all" onclick="toggleDarkMode()">
+<span class="material-icons-round">dark_mode</span>
+</button>
+</nav>
+</div>
+</header>
+<main class="max-w-7xl mx-auto px-6 py-8 space-y-8">
+<section class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-primary to-emerald-700 p-8 md:p-12 text-white text-center">
+<div class="relative z-10 max-w-2xl mx-auto space-y-6">
+<h2 class="text-3xl md:text-4xl font-bold">¿Cómo reciclamos hoy?</h2>
+<p class="text-emerald-50 text-lg opacity-90">Busca cualquier material para saber exactamente en qué contenedor depositarlo.</p>
+<div class="relative group">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 material-icons-round text-emerald-800">search</span>
+<input class="w-full pl-12 pr-4 py-4 rounded-2xl border-none text-emerald-900 focus:ring-4 focus:ring-emerald-400/50 shadow-xl text-lg placeholder:text-emerald-300" placeholder="Ej: Bolsa de palomitas, tetra brik, envase de yogurt..." type="text"/>
+<div class="absolute right-3 top-1/2 -translate-y-1/2 hidden md:block">
+<kbd class="px-2 py-1 bg-emerald-100 text-emerald-800 rounded text-xs font-bold border border-emerald-200">ENTER</kbd>
+</div>
+</div>
+</div>
+<div class="absolute top-0 right-0 -translate-y-1/4 translate-x-1/4 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
+<div class="absolute bottom-0 left-0 translate-y-1/4 -translate-x-1/4 w-48 h-48 bg-emerald-400/20 rounded-full blur-2xl"></div>
+</section>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<div class="lg:col-span-8 space-y-6">
+<div class="bg-white dark:bg-emerald-900/20 p-6 rounded-3xl custom-shadow border border-emerald-50 dark:border-emerald-800/50">
+<div class="flex items-center justify-between mb-6">
+<div class="flex items-center gap-2">
+<span class="material-icons-round text-primary">analytics</span>
+<h3 class="text-xl font-bold dark:text-emerald-100">Calculadora de Impacto</h3>
+</div>
+<span class="text-xs font-semibold px-2 py-1 bg-emerald-100 dark:bg-emerald-900 text-primary rounded-lg uppercase tracking-wider">Hoy</span>
+</div>
+<div class="grid md:grid-cols-2 gap-8">
+<div class="space-y-4">
+<p class="text-sm font-semibold text-emerald-600 dark:text-emerald-400 uppercase tracking-wide mb-2">¿Qué has reciclado hoy?</p>
+<div class="grid grid-cols-1 gap-2">
+<button class="group flex items-center justify-between p-3 rounded-2xl bg-blue-50 dark:bg-blue-900/20 border border-blue-100 dark:border-blue-800 hover:bg-blue-500 hover:text-white transition-all text-blue-700 dark:text-blue-300">
+<div class="flex items-center gap-3">
+<span class="material-icons-round">description</span>
+<span class="font-medium">Papel y Cartón</span>
+</div>
+<span class="text-sm font-bold opacity-0 group-hover:opacity-100 transition-opacity">+1</span>
+</button>
+<button class="group flex items-center justify-between p-3 rounded-2xl bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-100 dark:border-yellow-800 hover:bg-yellow-500 hover:text-white transition-all text-yellow-700 dark:text-yellow-300">
+<div class="flex items-center gap-3">
+<span class="material-icons-round">shopping_bag</span>
+<span class="font-medium">Plásticos y Envases</span>
+</div>
+<span class="text-sm font-bold opacity-0 group-hover:opacity-100 transition-opacity">+1</span>
+</button>
+<button class="group flex items-center justify-between p-3 rounded-2xl bg-green-50 dark:bg-green-900/20 border border-green-100 dark:border-green-800 hover:bg-green-500 hover:text-white transition-all text-green-700 dark:text-green-300">
+<div class="flex items-center gap-3">
+<span class="material-icons-round">wine_bar</span>
+<span class="font-medium">Vidrio</span>
+</div>
+<span class="text-sm font-bold opacity-0 group-hover:opacity-100 transition-opacity">+1</span>
+</button>
+<button class="group flex items-center justify-between p-3 rounded-2xl bg-orange-50 dark:bg-orange-900/20 border border-orange-100 dark:border-orange-800 hover:bg-orange-500 hover:text-white transition-all text-orange-700 dark:text-orange-300">
+<div class="flex items-center gap-3">
+<span class="material-icons-round">restaurant</span>
+<span class="font-medium">Residuos Orgánicos</span>
+</div>
+<span class="text-sm font-bold opacity-0 group-hover:opacity-100 transition-opacity">+1</span>
+</button>
+</div>
+</div>
+<div class="space-y-4">
+<p class="text-sm font-semibold text-emerald-600 dark:text-emerald-400 uppercase tracking-wide mb-2">Tu Ahorro Ambiental</p>
+<div class="p-4 rounded-3xl bg-amber-50 dark:bg-amber-900/20 border border-amber-100 dark:border-amber-800 flex items-center gap-4">
+<div class="bg-amber-500 text-white p-3 rounded-2xl">
+<span class="material-icons-round">bolt</span>
+</div>
+<div>
+<p class="text-xs text-amber-700 dark:text-amber-400 font-semibold uppercase">Energía Ahorrada</p>
+<p class="text-3xl font-bold text-amber-900 dark:text-amber-200">12.4 <span class="text-lg font-medium opacity-70">kWh</span></p>
+</div>
+</div>
+<div class="p-4 rounded-3xl bg-sky-50 dark:bg-sky-900/20 border border-sky-100 dark:border-sky-800 flex items-center gap-4">
+<div class="bg-sky-500 text-white p-3 rounded-2xl">
+<span class="material-icons-round">water_drop</span>
+</div>
+<div>
+<p class="text-xs text-sky-700 dark:text-sky-400 font-semibold uppercase">Agua Ahorrada</p>
+<p class="text-3xl font-bold text-sky-900 dark:text-sky-200">145 <span class="text-lg font-medium opacity-70">L</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-8 pt-8 border-t border-emerald-50 dark:border-emerald-800">
+<div class="flex items-center justify-between mb-6">
+<h4 class="font-semibold text-emerald-800 dark:text-emerald-300">Comparación de Consumo de Agua</h4>
+<div class="flex gap-4 text-xs">
+<div class="flex items-center gap-1"><span class="w-3 h-3 rounded-full bg-primary/20"></span> Media</div>
+<div class="flex items-center gap-1"><span class="w-3 h-3 rounded-full bg-primary"></span> Tu ahorro</div>
+</div>
+</div>
+<div class="h-48 flex items-end gap-4 px-4">
+<div class="flex-1 flex flex-col items-center gap-2">
+<div class="w-full bg-emerald-100 dark:bg-emerald-800 rounded-t-xl h-[40%]"></div>
+<span class="text-[10px] font-bold text-emerald-600 uppercase">Ducha (5m)</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2">
+<div class="w-full bg-emerald-100 dark:bg-emerald-800 rounded-t-xl h-[85%]"></div>
+<span class="text-[10px] font-bold text-emerald-600 uppercase">Baño</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2">
+<div class="w-full bg-primary rounded-t-xl h-[25%] relative group">
+<div class="absolute -top-10 left-1/2 -translate-x-1/2 bg-emerald-900 text-white text-[10px] py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity">¡Genial!</div>
+</div>
+<span class="text-[10px] font-bold text-primary uppercase">Tu Ahorro</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="lg:col-span-4 space-y-8">
+<div class="bg-emerald-50 dark:bg-emerald-900/30 p-8 rounded-3xl relative overflow-hidden flex flex-col items-center text-center">
+<div class="mb-4 bg-white dark:bg-emerald-800 p-4 rounded-full shadow-lg">
+<span class="material-icons-round text-primary text-5xl">lightbulb</span>
+</div>
+<h3 class="text-lg font-bold text-emerald-900 dark:text-emerald-200 mb-2">Tip del Día</h3>
+<p class="text-emerald-700 dark:text-emerald-400 text-sm leading-relaxed mb-6 italic">
+                        "¿Sabías que las cajas de pizza muy manchadas de aceite deben ir al contenedor marrón (orgánico)? El aceite impide el correcto reciclaje del cartón."
+                    </p>
+<button class="w-full py-3 bg-white dark:bg-emerald-800 text-primary font-bold rounded-2xl shadow-sm hover:shadow-md transition-all active:scale-95">
+                        Ver más consejos
+                    </button>
+</div>
+<div class="bg-white dark:bg-emerald-900/20 p-6 rounded-3xl custom-shadow border border-emerald-50 dark:border-emerald-800/50">
+<h3 class="text-lg font-bold mb-4 flex items-center gap-2">
+<span class="material-icons-round text-primary">emoji_events</span>
+                        Logros de la comunidad
+                    </h3>
+<div class="space-y-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-emerald-100 dark:bg-emerald-800 flex items-center justify-center text-emerald-600 font-bold">1º</div>
+<div class="flex-1">
+<div class="flex justify-between text-xs font-semibold mb-1">
+<span>Meta de reciclaje de barrio</span>
+<span>85%</span>
+</div>
+<div class="h-2 bg-emerald-100 dark:bg-emerald-800 rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[85%]"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<section class="space-y-6">
+<div class="flex items-center justify-between">
+<h3 class="text-2xl font-bold dark:text-emerald-100 flex items-center gap-3">
+<span class="material-icons-round text-primary">auto_awesome</span>
+                    Guía Visual Rápida
+                </h3>
+<a class="text-primary font-semibold hover:underline flex items-center gap-1" href="#">
+                    Ver guía completa <span class="material-icons-round text-sm">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+<button class="flex flex-col items-center p-6 bg-blue-500 rounded-3xl text-white hover:scale-105 transition-transform shadow-lg shadow-blue-500/20 group">
+<span class="material-icons-round text-4xl mb-3 group-hover:rotate-12 transition-transform">description</span>
+<span class="font-bold">Azul</span>
+<span class="text-[10px] opacity-80 uppercase tracking-widest mt-1">Papel</span>
+</button>
+<button class="flex flex-col items-center p-6 bg-yellow-400 rounded-3xl text-white hover:scale-105 transition-transform shadow-lg shadow-yellow-400/20 group">
+<span class="material-icons-round text-4xl mb-3 group-hover:rotate-12 transition-transform">shopping_bag</span>
+<span class="font-bold">Amarillo</span>
+<span class="text-[10px] opacity-80 uppercase tracking-widest mt-1">Envases</span>
+</button>
+<button class="flex flex-col items-center p-6 bg-green-500 rounded-3xl text-white hover:scale-105 transition-transform shadow-lg shadow-green-500/20 group">
+<span class="material-icons-round text-4xl mb-3 group-hover:rotate-12 transition-transform">wine_bar</span>
+<span class="font-bold">Verde</span>
+<span class="text-[10px] opacity-80 uppercase tracking-widest mt-1">Vidrio</span>
+</button>
+<button class="flex flex-col items-center p-6 bg-orange-600 rounded-3xl text-white hover:scale-105 transition-transform shadow-lg shadow-orange-600/20 group">
+<span class="material-icons-round text-4xl mb-3 group-hover:rotate-12 transition-transform">restaurant</span>
+<span class="font-bold">Marrón</span>
+<span class="text-[10px] opacity-80 uppercase tracking-widest mt-1">Orgánico</span>
+</button>
+<button class="flex flex-col items-center p-6 bg-slate-500 rounded-3xl text-white hover:scale-105 transition-transform shadow-lg shadow-slate-500/20 group col-span-2 md:col-span-1">
+<span class="material-icons-round text-4xl mb-3 group-hover:rotate-12 transition-transform">delete</span>
+<span class="font-bold">Gris</span>
+<span class="text-[10px] opacity-80 uppercase tracking-widest mt-1">Restos</span>
+</button>
+</div>
+</section>
+</main>
+<footer class="mt-12 py-12 glass-card border-t border-emerald-100 dark:border-emerald-800">
+<div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
+<div class="space-y-4">
+<div class="flex items-center gap-2">
+<div class="bg-primary p-1.5 rounded-lg text-white">
+<span class="material-icons-round text-xl">eco</span>
+</div>
+<span class="text-xl font-bold dark:text-emerald-100">ECO<span class="text-primary">TIPS</span></span>
+</div>
+<p class="text-sm text-emerald-600 dark:text-emerald-400">Juntos por un futuro más sostenible y un planeta más limpio.</p>
+</div>
+<div>
+<h4 class="font-bold mb-4 dark:text-emerald-100">Recursos</h4>
+<ul class="text-sm space-y-2 text-emerald-600 dark:text-emerald-400">
+<li><a class="hover:text-primary" href="#">Blog de Sostenibilidad</a></li>
+<li><a class="hover:text-primary" href="#">Puntos Limpios</a></li>
+<li><a class="hover:text-primary" href="#">API para Desarrolladores</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold mb-4 dark:text-emerald-100">Comunidad</h4>
+<ul class="text-sm space-y-2 text-emerald-600 dark:text-emerald-400">
+<li><a class="hover:text-primary" href="#">Eventos Locales</a></li>
+<li><a class="hover:text-primary" href="#">Retos Mensuales</a></li>
+<li><a class="hover:text-primary" href="#">Voluntariado</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold mb-4 dark:text-emerald-100">Síguenos</h4>
+<div class="flex gap-4">
+<a class="p-2 bg-emerald-100 dark:bg-emerald-900 text-primary rounded-xl hover:bg-primary hover:text-white transition-colors" href="#">
+<svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path></svg>
+</a>
+<a class="p-2 bg-emerald-100 dark:bg-emerald-900 text-primary rounded-xl hover:bg-primary hover:text-white transition-colors" href="#">
+<svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path></svg>
+</a>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto px-6 mt-8 pt-8 border-t border-emerald-50 dark:border-emerald-800 text-center text-xs text-emerald-400">
+            © 2024 EcoTips Dashboard. Hecho con ❤️ por el planeta.
+        </div>
+</footer>
+
+</body></html>
